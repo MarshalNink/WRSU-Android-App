@@ -6,6 +6,6 @@ This is the Official WSRU Rutgers Radio Station Android Application.
 Current:
   
 In Development:
-  Streaming the Station
-  Adding the Schedule
-  Call the DJ Button
+Streaming the Station
+Adding the Schedule
+Call the DJ Button
