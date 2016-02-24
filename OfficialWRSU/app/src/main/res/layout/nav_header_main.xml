@@ -16,12 +16,14 @@
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="82dp"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@mipmap/ic_launcher"
         android:layout_weight="1"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="false"
+        android:contextClickable="false" />
 
     <TextView
         android:layout_width="match_parent"
