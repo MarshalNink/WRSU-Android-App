@@ -9,5 +9,11 @@
     <string name="title_activity_about_page">AboutPageActivity</string>
 
     <string name="call_dj">tel:7329328800</string>
+    <string name="title_activity_sports">SportsActivity</string>
+    <string name="title_activity_schedule">ScheduleActivity</string>
+    <string name="title_activity_music">MusicActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_player">PlayerActivity</string>
 
 </resources>

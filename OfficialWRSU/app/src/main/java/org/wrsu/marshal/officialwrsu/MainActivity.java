@@ -83,9 +83,20 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_player) {
-            // Handle the camera action
-        } else if (id == R.id.nav_manage) {
-
+            Intent playerIntent = new Intent(this, PlayerActivity.class);
+            startActivity(playerIntent);
+        } else if (id == R.id.nav_schedule) {
+            Intent scheduleIntent = new Intent(this, ScheduleActivity.class);
+            startActivity(scheduleIntent);
+        } else if (id == R.id.nav_music) {
+            Intent musicIntent = new Intent(this, MusicActivity.class);
+            startActivity(musicIntent);
+        } else if (id == R.id.nav_sports) {
+            Intent sportsIntent = new Intent(this, SportsActivity.class);
+            startActivity(sportsIntent);
+        } else if (id == R.id.nav_news) {
+            Intent newsIntent = new Intent(this, NewsActivity.class);
+            startActivity(newsIntent);
         } else if (id == R.id.nav_about) {
             Intent aboutIntent = new Intent(this, AboutActivity.class);
             startActivity(aboutIntent);

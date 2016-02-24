@@ -21,7 +21,60 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.wrsu.marshal.officialwrsu.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ScheduleActivity"
+            android:label="@string/title_activity_schedule"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.wrsu.marshal.officialwrsu.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SportsActivity"
+            android:label="@string/title_activity_sports"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.wrsu.marshal.officialwrsu.MainActivity" />
+        </activity>
+        <activity
+            android:name=".MusicActivity"
+            android:label="@string/title_activity_music"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.wrsu.marshal.officialwrsu.MainActivity" />
+        </activity>
+        <activity
+            android:name=".NewsActivity"
+            android:label="@string/title_activity_news"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.wrsu.marshal.officialwrsu.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PlayerActivity"
+            android:label="@string/title_activity_player"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.wrsu.marshal.officialwrsu.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
