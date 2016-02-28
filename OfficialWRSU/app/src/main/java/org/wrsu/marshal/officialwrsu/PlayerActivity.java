@@ -34,6 +34,7 @@ public  class PlayerActivity extends AppCompatActivity  {
     private static MediaPlayer mp;
     private Button playButton, wrsuB1, wrsuB2, wrsuB3;
     private static String wrsuStreamPath;
+    private int streamState;
     AudioHandler ah;
     private static boolean streamPlaying = false;
     File streamFile;
@@ -54,20 +55,24 @@ public  class PlayerActivity extends AppCompatActivity  {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         wrsuStreamPath = getResources().getString(R.string.wrsu_stream_1);
+        streamState = 0;
         ah = new AudioHandler(wrsuStreamPath,this);
-        
+
         // play button
         this.playButton = (Button) this.findViewById(R.id.playButton);
         this.playButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                System.out.println("YOU CLICKED THE BUTTON");
-                if (!streamPlaying) {
-                    ah.startPlaying(wrsuStreamPath);
-                    streamPlaying = true;
-                } else {
-                    ah.stopPlaying();
-                    streamPlaying = false;
+                if (streamState != 0) {
+                    if (!streamPlaying) {
+                        ah.startPlaying(wrsuStreamPath);
+                        streamPlaying = true;
+                    } else {
+                        ah.stopPlaying();
+                        streamPlaying = false;
+                    }
                 }
+
             }
         });
 
@@ -75,8 +80,7 @@ public  class PlayerActivity extends AppCompatActivity  {
         this.wrsuB1 = (Button) this.findViewById(R.id.wrsuB1);
         this.wrsuB1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("Station changed to WRSU 1 Stream");
-                wrsuStreamPath = getResources().getString(R.string.wrsu_stream_1);
+                changeStation(1);
             }
         });
 
@@ -84,9 +88,7 @@ public  class PlayerActivity extends AppCompatActivity  {
         this.wrsuB2 = (Button) this.findViewById(R.id.wrsuB2);
         this.wrsuB2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("Station changed to WRSU 2 Stream");
-                wrsuStreamPath = getResources().getString(R.string.wrsu_stream_2);
-
+               changeStation(2);
             }
         });
 
@@ -94,13 +96,39 @@ public  class PlayerActivity extends AppCompatActivity  {
         this.wrsuB3 = (Button) this.findViewById(R.id.wrsuB3);
         this.wrsuB3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("Station changed to WRSU 3 Stream");
-                wrsuStreamPath = getResources().getString(R.string.wrsu_stream_3);
+                changeStation(3);
             }
         });
+
+        // TODO: Add an indicator if stream is loading or playing
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    public void changeStation(int s) {
+        if (s != streamState) {
+            streamState = s;
+            ah.stopPlaying();
+            streamPlaying = false;
+            switch(s) {
+                case 1:
+                    wrsuStreamPath = getResources().getString(R.string.wrsu_stream_1);
+                    System.out.println("**********Station changed to WRSU 1 Stream**********");
+                    break;
+                case 2:
+                    wrsuStreamPath = getResources().getString(R.string.wrsu_stream_2);
+                    System.out.println("**********Station changed to WRSU 2 Stream**********");
+                    break;
+                case 3:
+                    wrsuStreamPath = getResources().getString(R.string.wrsu_stream_3);
+                    System.out.println("**********Station changed to WRSU 3 Stream**********");
+                    break;
+            }
+            ah.startPlaying(wrsuStreamPath);
+            streamPlaying = true;
+        }
     }
 
     @Override
