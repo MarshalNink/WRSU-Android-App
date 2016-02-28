@@ -15,6 +15,10 @@
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_player">PlayerActivity</string>
+
     <string name="StreamLocationFile">/wrsu.m3u</string>
+    <string name="wrsu_stream_1">http://128.6.200.101:8000/wrsu</string>
+    <string name="wrsu_stream_2">http://128.6.200.101:8000/wrsu2</string>
+    <string name="wrsu_stream_3">http://128.6.200.101:8000/wrsu3</string>
 
 </resources>

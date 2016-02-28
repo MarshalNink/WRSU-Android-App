@@ -32,8 +32,8 @@ import org.wrsu.marshal.officialwrsu.AudioHandler;
 public  class PlayerActivity extends AppCompatActivity  {
 
     private static MediaPlayer mp;
-    private Button playButton;
-    final private static String wrsuStreamPath = "http://128.6.200.101:8000/wrsu";
+    private Button playButton, wrsuB1, wrsuB2, wrsuB3;
+    private static String wrsuStreamPath;
     AudioHandler ah;
     private static boolean streamPlaying = false;
     File streamFile;
@@ -53,15 +53,13 @@ public  class PlayerActivity extends AppCompatActivity  {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //streamFile = new File(getString(R.string.StreamLocationFile));
+        wrsuStreamPath = getResources().getString(R.string.wrsu_stream_1);
         ah = new AudioHandler(wrsuStreamPath,this);
-        // mp = new MediaPlayer();
-        // mp.reset();
-
+        
         // play button
         this.playButton = (Button) this.findViewById(R.id.playButton);
         this.playButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {   // TODO: Get the stream working
+            public void onClick(View v) {
                System.out.println("YOU CLICKED THE BUTTON");
                 if (!streamPlaying) {
                     ah.startPlaying(wrsuStreamPath);
@@ -70,38 +68,41 @@ public  class PlayerActivity extends AppCompatActivity  {
                     ah.stopPlaying();
                     streamPlaying = false;
                 }
-
-               /* if (streamPlaying) {
-                    mp.stop();
-                    streamPlaying = false;
-                } else {
-                    initializeMediaPlayer();
-                    mp.start();
-                    streamPlaying = true;
-                }
-                System.out.println("Session ID is:\t" + mp.getAudioSessionId());
-                System.out.println(mp.getCurrentPosition());
-                */
             }
-        })
-        ;
+        });
+
+        // WRSU 1 Button
+        this.wrsuB1 = (Button) this.findViewById(R.id.wrsuB1);
+        this.wrsuB1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("Station changed to WRSU 1 Stream");
+                wrsuStreamPath = getResources().getString(R.string.wrsu_stream_1);
+            }
+        });
+
+        // WRSU 2 Button
+        this.wrsuB2 = (Button) this.findViewById(R.id.wrsuB2);
+        this.wrsuB2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("Station changed to WRSU 2 Stream");
+                wrsuStreamPath = getResources().getString(R.string.wrsu_stream_2);
+
+            }
+        });
+
+        // WRSU 3 Button
+        this.wrsuB3 = (Button) this.findViewById(R.id.wrsuB3);
+        this.wrsuB3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("Station changed to WRSU 3 Stream");
+                wrsuStreamPath = getResources().getString(R.string.wrsu_stream_3);
+            }
+        });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    // setup audio streamer
-    public void initializeMediaPlayer() {
-        try {
-            mp.reset();
-            mp.setAudioStreamType(STREAM_MUSIC);
-            mp.setDataSource(wrsuStreamPath);
-            //mp.setOnPreparedListener(this);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     @Override
     public void onStart() {
         super.onStart();
