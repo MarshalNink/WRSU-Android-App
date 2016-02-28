@@ -15,5 +15,6 @@
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_player">PlayerActivity</string>
+    <string name="StreamLocationFile">/wrsu.m3u</string>
 
 </resources>

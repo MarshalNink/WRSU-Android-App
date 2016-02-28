@@ -12,4 +12,12 @@
     tools:context="org.wrsu.marshal.officialwrsu.PlayerActivity"
     tools:showIn="@layout/activity_player">
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:text="Play / Pause the stream"
+        android:id="@+id/playButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp" />
 </RelativeLayout>
